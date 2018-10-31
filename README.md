@@ -20,9 +20,11 @@ A simple example just verifying and creating Django compatible passwords:
 ```javascript
 const hashers = require('node-django-hashers');
 
-const h = new hashers.PBKDF2PasswordHasher();
+const h = new hashers.PBKDF2PasswordHasher([salt]);
 h.encode("password").then(console.log); // prints the hashed password
 ```
+
+if salt is undefined will generate random one otherwise will use provided salt
 
 You can also get a hashed password, identify the hashing algorithm, and verify the password. The below example is for Argon2PasswordHasher, a similar approach to the above code sample can be used for all the other algorithms.
 

@@ -139,15 +139,12 @@ module.exports.Argon2PasswordHasher = function() {
 }
 
 
-module.exports.PBKDF2PasswordHasher = function() {
+module.exports.PBKDF2PasswordHasher = function(salt) {
     this.algorithm = "pbkdf2_sha256";
     this.iterations = 120000;
     this.len = 32;
 
-    this.salt = function() {
-        return crypto.randomBytes(8).toString('base64');
-    }
-
+    this.salt = (salt != undefined) ? salt :crypto.randomBytes(8).toString('base64');
     this.encode = function(password) {
         const self = this;
         return new Promise(function (resolve, reject) {
