@@ -141,7 +141,7 @@ module.exports.Argon2PasswordHasher = function() {
 
 module.exports.PBKDF2PasswordHasher = function(salt) {
     this.algorithm = "pbkdf2_sha256";
-    this.iterations = 120000;
+    this.iterations = 36000;
     this.len = 32;
 
     this.salt = (salt != undefined) ? salt :crypto.randomBytes(8).toString('base64');
