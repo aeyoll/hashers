@@ -148,7 +148,7 @@ module.exports.PBKDF2PasswordHasher = function(salt) {
     this.encode = function(password) {
         const self = this;
         return new Promise(function (resolve, reject) {
-            const salt = self.salt();
+            const salt = self.salt;
             crypto.pbkdf2(password, salt, self.iterations, self.len, 'sha256', function (err, derivedKey) {
                 if (err) { return reject(err); }
                 const key = new Buffer(derivedKey, 'binary').toString('base64');
