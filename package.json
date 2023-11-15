@@ -3,8 +3,7 @@
   "version": "1.1.6",
   "dependencies": {
     "assert": "^1.4.1",
-    "bcryptjs": "^2.3.0",
-    "node-gyp": "^3.7.0"
+    "bcryptjs": "^2.3.0"
   },
   "description": "All password hashing algorithms for Django implemented in javascript for nodejs projects.",
   "main": "index.js",
